@@ -32,17 +32,19 @@ interface RepositoryUser{
 const Repository: React.FC = () => {
   const [repository, setRepository] = useState<RepositoryUser | null>(null);
   const [issues, setIssues] = useState<Issue[]>([]);
-
   const { params } = useRouteMatch<RepositoryParams>();
 
   useEffect(() => {
     api.get(`repos/${params.repository}`).then(response => {
       setRepository(response.data);
     });
+
     api.get(`repos/${params.repository}/issues`).then(response => {
       setIssues(response.data);
     });
+
   }, [params.repository]);
+
   return (
     <>
     <Header>
@@ -64,11 +66,13 @@ const Repository: React.FC = () => {
       <ul>
         <li>
           <strong>{repository.stargazers_count}</strong>
-          <span>Stars</span>
+          <Link key={repository.full_name} to={`repositories/${repository.full_name}`}>
+            <span>Stars</span>
+          </Link>
         </li>
         <li>
           <strong>{repository.forks_count}</strong>
-          <span>Stars</span>
+          <span>Forks</span>
         </li>
         <li>
           <strong>{repository.open_issues_count}</strong>

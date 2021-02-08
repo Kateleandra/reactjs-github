@@ -41,7 +41,7 @@ header{
 ul{
   display: flex;
   list-style: none;
-  margin-top: 40px;
+  margin: 40px 0;
   li{
     & + li{
       margin-left: 80px;
