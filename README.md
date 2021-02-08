@@ -34,7 +34,7 @@ yarn install
 **Start server**
 
 ```
-yarn dev
+yarn start
 ```
 **yarn start**
 
