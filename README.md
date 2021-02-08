@@ -36,7 +36,7 @@ yarn install
 ```
 yarn start
 ```
-**yarn start**
+**yarn build**
 
 ```
 Builds the app for production to the `build` folder.\
